@@ -11,9 +11,9 @@ public class Principal {
 		Celular celular;
 		
 		//Adicionando exemplos para teste:
-		Teste.adicionarFabricantes();
+		/*Teste.adicionarFabricantes();
 		Teste.adicionarCelularesALoja();
-		Teste.adicionarAppsALoja();
+		Teste.adicionarAppsALoja();*/
 		
 		do {
 			System.out.println("\n\n--------------------------------------------------------------"
@@ -112,21 +112,25 @@ public class Principal {
 			break;
 							
 			case 2:
+				res="nE";
 				System.out.println("\n--- Bem vindo à Loja de Smartphones ---"
 						+ "\nNós possuimos os seguintes modelos: ");
 				PersistenciaCelular.exibirModelos();
+				do {
 				celular= new Celular();
 				celular.setModelo(Console.readString("Digite o modelo que deseja: "));
 				celular=PersistenciaCelular.escolherCelular(celular);
 				if(celular!=null) {
+					res="E";
 					celular.setIdAutomatico();
 					celular.setProprietario(Console.readString("Informe seu nome: "));
 					PersistenciaCelular.venderCelular(celular);
 					System.out.println("Parabéns "+celular.getProprietario()+", você acaba de adquirir seu novo "+celular.getMarca()+" "+celular.getModelo()+", o id de seu novo celular é: "+celular.getId()+"!"
 							+"\nPara utilizá-lo selecione a opção 4 no menu principal.");
 				}else {
-					System.out.println("Erro, o modelo não está na lista da loja.");
+					System.out.println("Erro, você deve digitar o nome de um dos modelos da lista.");
 				}
+				}while(res=="nE");
 				break;
 			
 			case 3:

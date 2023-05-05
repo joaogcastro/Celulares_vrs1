@@ -15,7 +15,7 @@ public class PersistenciaFabricante {
 	
 	public static boolean verificarFabricanteCadastrado (Fabricante fabricante) {
 		for(Fabricante item: listaFabricantes) {
-			if(item.getNome().equals(fabricante.getNome())) {
+			if(item.getNome().equalsIgnoreCase(fabricante.getNome())) {
 				return true;
 			}
 		}
@@ -42,7 +42,7 @@ public class PersistenciaFabricante {
 
 	public static Fabricante verificarFabricanteCadastrado (Celular celular) {
 		for(Fabricante item: listaFabricantes) {
-			if(item.getNome().equals(celular.getMarca())) {
+			if(item.getNome().equalsIgnoreCase(celular.getMarca())) {
 				return item;
 			}
 		}

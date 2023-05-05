@@ -18,7 +18,7 @@ public class PersistenciaApp {
 	
 	public static boolean verificarAppCadastrado (App app) {
 		for(App item: appStore) {
-			if(item.getNome().equals(app.getNome())) {
+			if(item.getNome().equalsIgnoreCase(app.getNome())) {
 				return true;
 			}
 		}
